@@ -83,8 +83,8 @@ document.getElementById("checkoutBtn").addEventListener("click", () => {
         </ul>
         <div class="total">Total: ₱${total.toFixed(2)}</div>
         <div class="footer">
-          Thank you for visiting Cozy Brews!<br/>
-          ☕ Come again soon!
+          Thank you for visiting OKINA ONAKA RAMEN HOUSE!<br/>
+           Come again soon!
         </div>
       </body>
     </html>
