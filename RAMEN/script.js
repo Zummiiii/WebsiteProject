@@ -62,6 +62,13 @@ document.getElementById("cartIcon").addEventListener("click", () => {
   document.getElementById("cartModal").style.display = "flex";
 });
 
+// Generate random queue number
+function generateQueueNumber() {
+  const prefix = "Q-";
+  const randomNum = Math.floor(1000 + Math.random() * 9000); // e.g. Q-5732
+  return prefix + randomNum;
+}
+
 // Checkout: Print receipt (mobile-friendly)
 document.getElementById("checkoutBtn").addEventListener("click", () => {
   if (cart.length === 0) {
@@ -73,6 +80,8 @@ document.getElementById("checkoutBtn").addEventListener("click", () => {
   const date = document.getElementById('date')?.value || new Date().toISOString().split('T')[0];
   const amountPaid = document.getElementById('amountPaid')?.value || '0';
   const change = document.getElementById('change')?.value || '0';
+
+  const queueNumber = generateQueueNumber();
 
   let receiptContent = `
     <html>
@@ -86,10 +95,12 @@ document.getElementById("checkoutBtn").addEventListener("click", () => {
         li { margin-bottom: 4px; }
         .total { font-weight: bold; margin-top: 10px; }
         .footer { margin-top: 20px; text-align: center; font-size: 12px; color: #444; }
+        .queue { font-size: 16px; text-align: center; font-weight: bold; margin: 10px 0; }
       </style>
     </head>
     <body>
       <h2>OKINA ONAKA</h2>
+      <div class="queue">Queue Number: ${queueNumber}</div>
       <p>Date: ${new Date().toLocaleString()}</p>
       <ul>
   `;
@@ -103,8 +114,6 @@ document.getElementById("checkoutBtn").addEventListener("click", () => {
   receiptContent += `
       </ul>
       <div class="total">Total: ₱${total.toFixed(2)}</div>
-      <div class="total">Amount Paid: ₱${amountPaid}</div>
-      <div class="total">Change: ${change}</div>
       <div class="footer">
         Thank you for visiting OKINA ONAKA<br/>
         Come again soon!
