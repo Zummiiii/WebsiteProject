@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>OKINA ONAKA</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="navbar">
+    <div class="logo">okina onaka</div>
+
+    <!-- Hamburger Button -->
+    <button id="hamburger" class="hamburger">&#9776;</button>
+
+    <!-- Navigation Menu -->
+    <nav class="nav-menu" id="navMenu">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li class="cart-icon" id="cartIcon">🛒 <span id="cartCount">0</span></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <h1>OKina onaka Ramen House</h1>
+    <p>Authentic Japanese ramen, handcrafted with Soul</p>
+  </section>
+
+  <!-- Menu Section -->
+  <section class="menu" id="menu">
+    <h2>Our Menu</h2>
+    <div class="menu-grid">
+      <div class="menu-item">
+        <img src="/IMG/PORK STRIP RAMEN.jpg" alt="PORK STRIP RAMEN">
+        <h3>PORK STRIP RAMEN</h3>
+        <p>₱99.00</p>
+        <button class="add-to-cart" data-name="PORK STRIP RAMEN" data-price="99">Add to Cart</button>
+      </div>
+      <div class="menu-item">
+        <img src="./IMG/ICHIRAKU RAMEN.jpg" alt="ICHIRAKU RAMEN">
+        <h3>ICHIRAKU RAMEN</h3>
+        <p>₱99.00</p>
+        <button class="add-to-cart" data-name="ICHIRAKU RAMEN" data-price="99.00">Add to Cart</button>
+      </div>
+      <div class="menu-item">
+        <img src="./IMG/CHICKEN RAMEN.jpg" alt="CHICKEN RAMEN">
+        <h3>CHIKEN RAMEN</h3>
+        <p>₱99.00</p>
+        <button class="add-to-cart" data-name="CHIKEN RAMEN" data-price="99.00">Add to Cart</button>
+      </div>
+      <div class="menu-item">
+        <img src="./IMG/BEEF RAMEN.jpg" alt="BEEF RAMEN">
+        <h3>BEEF RAMEN</h3>
+        <p>₱99.</p>
+        <button class="add-to-cart" data-name="BEEF RAMEN" data-price="99.0">Add to Cart</button>
+      </div>
+      <div class="menu-item">
+        <img src="./IMG/VEGGIE RAMEN.jpg" alt="VEGGIE RAMEN">
+        <h3>VEGGIE RAMEN</h3>
+        <p>₱99.00</p>
+        <button class="add-to-cart" data-name="VEGGIE RAMEN" data-price="99.00">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about" id="about">
+    <h2>About Us</h2>
+    <p>Born from a love for Japanese street food and deep flavor, OKINA ONAKA Ramen House is your local ramen haven. Every bowl is made with fresh traditional techniques, premium ingredients, and passion in every slurp.</p>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact" id="contact">
+    <h2>Contact Us</h2>
+    <p>📍 123 Main Street, Your Town</p>
+    <p>📞 (123) 456-7890</p>
+    <p>✉️ info@OKINAONAKA.com</p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 Cozy Brews. All rights reserved.</p>
+  </footer>
+
+  <!-- Cart Modal -->
+  <div class="modal" id="cartModal">
+    <div class="modal-content">
+      <span id="closeCart">&times;</span>
+      <h2>Shopping Cart</h2>
+      <ul id="cartItems"></ul>
+      <p><strong>Total: <span id="totalPrice">0.00</span></strong></p>
+      <button id="checkoutBtn">Checkout</button>
+    </div>
+  </div>
+
+  <!-- Hidden Fields for Receipt -->
+  <input type="hidden" id="customer" value="INV-0001" />
+  <input type="hidden" id="date" />
+  <input type="hidden" id="amountPaid" value="0" />
+  <input type="hidden" id="change" value="0" />
+
+  <script>
+    // Auto-fill today's date
+    document.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("date").value = new Date().toISOString().split("T")[0];
+    });
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>
